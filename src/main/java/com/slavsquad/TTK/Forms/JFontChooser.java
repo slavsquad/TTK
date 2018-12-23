@@ -1,4 +1,4 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

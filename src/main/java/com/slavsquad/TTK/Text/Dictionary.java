@@ -1,4 +1,4 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Text;
 
 
 import java.io.Serializable;
@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class <>Dictionaree</> implements container which storage list of texts
+ * Class <>Dictionary</> implements container which storage list of texts
  */
 
 
-public class Dictionaree implements Serializable{
+public class Dictionary implements Serializable{
     private String name;
     private int idCurrentText;
     private List<Text> textList = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Dictionaree implements Serializable{
 
     /**
      * Construct new dictionaryLabel*/
-    public Dictionaree(String name, List<Text> textList) {
+    public Dictionary(String name, List<Text> textList) {
         averageSpeed = 0;
         this.idCurrentText = 0;
         errorPercent = 0;

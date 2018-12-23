@@ -1,8 +1,9 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
+
+import com.slavsquad.TTK.Text.*;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
@@ -15,10 +16,10 @@ import java.net.URISyntaxException;
 import java.util.Date;
 
 /**
- * Clas <>TTK</> implements user graphics interface of application.
+ * Clas <>MainForm</> implements user graphics interface of application.
  *
  */
-public class TTK extends JFrame {
+public class MainForm extends JFrame {
     JTextField  inputText;
     JLabel dictionaryLabel, idTextLabel, speedOfTyping, errorsCounterLabel,maxSpeedLabel,averageSpeedLabel, errorPercentlabel;
     File path = new File("dictionaries.out");
@@ -27,7 +28,7 @@ public class TTK extends JFrame {
     JFileChooser fileChooserOpen = new JFileChooser();
     JTextArea sourceText;
     WorkWithText workWithText;
-    TimerLabel  timerLabel;
+    TimerLabel timerLabel;
     JPanel statusBar, cardPanel, mainPanel, resultPanel,buttonPanel, sessionPanel;
     JEditorPane resultText;
     JButton nextBtn,againBtn;
@@ -40,8 +41,8 @@ public class TTK extends JFrame {
 
 
     /**
-     * Construct object of TTK and initialize needed field*/
-    TTK() {
+     * Construct object of MainForm and initialize needed field*/
+    public MainForm() {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Typing Tutor Keyboard");
@@ -365,7 +366,7 @@ public class TTK extends JFrame {
                 dictionaries.getCurrentDictionary().nextIdText();
                 start();
             }else {
-                if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(TTK.this,"You are already typed all texts in this dictionary! \n Do you want typing the dictionary again?","Confirm dialog",JOptionPane.YES_NO_OPTION)){
+                if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(MainForm.this,"You are already typed all texts in this dictionary! \n Do you want typing the dictionary again?","Confirm dialog",JOptionPane.YES_NO_OPTION)){
                     dictionaries.getCurrentDictionary().setIdCurrentText(0);
                     start();
                 }
@@ -609,7 +610,7 @@ public class TTK extends JFrame {
             fileChooserOpen.removeChoosableFileFilter(fileChooserOpen.getAcceptAllFileFilter());
 
             fileChooserOpen.setAccessory(new TextSizeSlider());
-            int ret = fileChooserOpen.showDialog(TTK.this, "Open");
+            int ret = fileChooserOpen.showDialog(MainForm.this, "Open");
             if (ret == JFileChooser.APPROVE_OPTION) {
                 try {
                     final File file = new File(fileChooserOpen.getSelectedFile().toString());
@@ -620,7 +621,7 @@ public class TTK extends JFrame {
                         containsDictionary = dictionaries.getNames().contains(fileName);
                     }
                     if (containsDictionary){
-                        JOptionPane.showMessageDialog(TTK.this,"Dictionary "+fileName+" already exist!","Error!",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(MainForm.this,"Dictionary "+fileName+" already exist!","Error!",JOptionPane.ERROR_MESSAGE);
                     }
                     else
                     {
@@ -629,7 +630,7 @@ public class TTK extends JFrame {
                                 dictionaries = new Dictionaries();
                                 nameDictionaresCBM = new DefaultComboBoxModel<>();
                             }
-                            new ConversionProgressForm(TTK.this,"Conversion",dictionaries,file, Info.getCountCharInFile(file),sizeText);
+                            new ConversionProgressForm(MainForm.this,"Conversion",dictionaries,file, Info.getCountCharInFile(file),sizeText);
 
                             nameDictionaresCBM.addElement(fileName);
                             nameDictionaresCBM.setSelectedItem(dictionaries.getCurrentDictionary().getName());
@@ -656,7 +657,7 @@ public class TTK extends JFrame {
         public void actionPerformed(ActionEvent e){
             if (dictionaries!=null){
                 halt();
-                new EditDictionaryForm(TTK.this,"Edit dictionary",dictionaries,nameDictionaresCBM);
+                new EditDictionaryForm(MainForm.this,"Edit dictionary",dictionaries,nameDictionaresCBM);
             }
 
 
@@ -670,7 +671,7 @@ public class TTK extends JFrame {
         public void actionPerformed(ActionEvent e){
             if (dictionaries!=null){
                 pause();
-                new RemoveDictionaryForm(TTK.this,"Remove dictionary",dictionaries,nameDictionaresCBM);
+                new RemoveDictionaryForm(MainForm.this,"Remove dictionary",dictionaries,nameDictionaresCBM);
                 halt();
             }
         }
@@ -683,7 +684,7 @@ public class TTK extends JFrame {
         public void actionPerformed(ActionEvent e){
             if (dictionaries!=null){
                 pause();
-                new SelectDictionaryForm(TTK.this,"Select dictionary",dictionaries,nameDictionaresCBM);
+                new SelectDictionaryForm(MainForm.this,"Select dictionary",dictionaries,nameDictionaresCBM);
                 halt();
             }
         }
@@ -697,7 +698,7 @@ public class TTK extends JFrame {
             pause();
             JFontChooser fontChooser = new JFontChooser();
             fontChooser.setSelectedFont(new Font("Verdana", Font.PLAIN, 18));
-            fontChooser.showDialog(TTK.this);
+            fontChooser.showDialog(MainForm.this);
             Font selectFont = fontChooser.getSelectedFont();
             inputText.setFont(selectFont);
             sourceText.setFont(selectFont);
@@ -714,7 +715,7 @@ public class TTK extends JFrame {
         public void actionPerformed(ActionEvent e){
             if (dictionaries!=null){
                 pause();
-                new StatisticsForm(TTK.this,"Statistics",dictionaries);
+                new StatisticsForm(MainForm.this,"Statistics",dictionaries);
             }
         }
     }
@@ -727,7 +728,7 @@ public class TTK extends JFrame {
         public void actionPerformed(ActionEvent e){
             if (dictionaries!=null){
                 pause();
-                JOptionPane.showOptionDialog(TTK.this,createAboutMessageComponenets(),
+                JOptionPane.showOptionDialog(MainForm.this,createAboutMessageComponenets(),
                         "About", JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
             }
         }
@@ -820,7 +821,7 @@ public class TTK extends JFrame {
         infoPanel.add(createHyperLink("slavsquad","mailto:slavsquad@yandex.com","slavsquad@yandex.com"));
         componentPanel.add(new JLabel("<html><font size = \"5\">Typing Tutor Keyboard</font></html>"), new GridBagConstraints(0,0,1,1,0,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0));
         componentPanel.add(new JLabel("<html><font size = \"2\">ver. "+version+"</font></html>"), new GridBagConstraints(0,1,1,1,0,1,GridBagConstraints.EAST,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0));
-        componentPanel.add(new JLabel("<html>The cross platform typing trainer.<br/>TTK has some features:"+
+        componentPanel.add(new JLabel("<html>The cross platform typing trainer.<br/>MainForm has some features:"+
                 "<br/> &nbsp;&nbsp;&nbsp;&#8226; typing any texts on time;"+
                 "<br/> &nbsp;&nbsp;&nbsp;&#8226; add and remove dictionary;" +
                 "<br/> &nbsp;&nbsp;&nbsp;&#8226; edit text of dictionary;" +

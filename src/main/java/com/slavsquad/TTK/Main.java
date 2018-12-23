@@ -1,5 +1,7 @@
 package com.slavsquad.TTK;
 
+import com.slavsquad.TTK.Forms.MainForm;
+
 import javax.swing.*;
 
 /**
@@ -7,8 +9,6 @@ import javax.swing.*;
  */
 public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(TTK::new);
-        System.out.println("Hello world!");
-
+        SwingUtilities.invokeLater(MainForm::new);
     }
 }

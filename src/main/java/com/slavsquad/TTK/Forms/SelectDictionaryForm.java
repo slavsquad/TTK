@@ -1,4 +1,6 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
+
+import com.slavsquad.TTK.Text.Dictionaries;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +22,7 @@ public class SelectDictionaryForm extends JDialog {
 
     /**
      * Construct new object SelectDictionaryForm*/
-    public SelectDictionaryForm(Frame parent, String title, Dictionaries dictionaries,DefaultComboBoxModel<String> namesDictionariesCBM) {
+    public SelectDictionaryForm(Frame parent, String title, Dictionaries dictionaries, DefaultComboBoxModel<String> namesDictionariesCBM) {
         super(parent, title);
         this.dictionaries = dictionaries;
         this.namesDictionariesCBM =  namesDictionariesCBM;

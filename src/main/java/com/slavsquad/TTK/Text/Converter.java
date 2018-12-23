@@ -1,4 +1,9 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Text;
+
+import com.slavsquad.TTK.Text.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionary;
+import com.slavsquad.TTK.Text.Info;
+import com.slavsquad.TTK.Text.Text;
 
 import javax.swing.*;
 import java.io.File;
@@ -96,7 +101,7 @@ public class Converter extends SwingWorker<List<Text>,Integer>{
     protected void done(){
         String fileName = Info.getFileNameWithoutExtention(file.getName());
         if (dictionaries==null){dictionaries = new Dictionaries();}
-        dictionaries.add(new Dictionaree(fileName,listOfTexts));
+        dictionaries.add(new Dictionary(fileName,listOfTexts));
         dictionaries.setCurrentIdDictionary(dictionaries.getListDictionaries().size()-1);
     }
 

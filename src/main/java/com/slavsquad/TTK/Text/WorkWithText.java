@@ -1,4 +1,4 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Text;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;

@@ -1,4 +1,4 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 public class Dictionaries implements Serializable {
     private int currentIdDictionary;
-    private List<Dictionaree> listDictionaries= new ArrayList<>();
+    private List<Dictionary> listDictionaries= new ArrayList<>();
 
     /**Construct new path*/
     public Dictionaries() {
@@ -18,7 +18,7 @@ public class Dictionaries implements Serializable {
     }
 
     /**Construct new path*/
-    public Dictionaries(int currentIdDictionary, List<Dictionaree> listDictionaries) {
+    public Dictionaries(int currentIdDictionary, List<Dictionary> listDictionaries) {
         this.currentIdDictionary = currentIdDictionary;
         this.listDictionaries = listDictionaries;
     }
@@ -40,28 +40,28 @@ public class Dictionaries implements Serializable {
     /**
      * Method gets list of path
      * @return list of path*/
-    public List<Dictionaree> getListDictionaries() {
+    public List<Dictionary> getListDictionaries() {
         return listDictionaries;
     }
 
     /**
      * Method sets list of path
      * @param listDictionaries - the list of path*/
-    public void setListDictionaries(List<Dictionaree> listDictionaries) {
+    public void setListDictionaries(List<Dictionary> listDictionaries) {
         this.listDictionaries = listDictionaries;
     }
 
     /**
      * Method gets current dictionaryLabel
      * @return current dictionaryLabel*/
-    public Dictionaree getCurrentDictionary(){
+    public Dictionary getCurrentDictionary(){
         return listDictionaries.get(currentIdDictionary);
     }
 
     /**
      * Method adds new dictionaryLabel in list of dictionaries
      * @param dictionary - the dictionaryLabel which adding in list*/
-    public void add(Dictionaree dictionary){
+    public void add(Dictionary dictionary){
         listDictionaries.add(dictionary);
     }
 
@@ -69,12 +69,12 @@ public class Dictionaries implements Serializable {
      * Method gets dictionaryLabel accordance its id
      * @param id - the id number
      * @return dictionaryLabel*/
-    public Dictionaree getDictionary(int id){
+    public Dictionary getDictionary(int id){
         return listDictionaries.get(id);
     }
 
-    public Dictionaree getDictionary(String name){
-        for (Dictionaree dictionary:listDictionaries){
+    public Dictionary getDictionary(String name){
+        for (Dictionary dictionary:listDictionaries){
             if (dictionary.getName().equals(name)){
                 return dictionary;
             }
@@ -87,7 +87,7 @@ public class Dictionaries implements Serializable {
      * @return listOfNames array contains names of dictionaries*/
     public Vector<String> getNames(){
         Vector<String> listOfNames = new Vector<>();
-        for (Dictionaree dictionary:listDictionaries){
+        for (Dictionary dictionary:listDictionaries){
             listOfNames.add(dictionary.getName());
         }
         return listOfNames;

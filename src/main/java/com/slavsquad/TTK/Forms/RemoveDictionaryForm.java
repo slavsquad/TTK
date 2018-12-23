@@ -1,4 +1,6 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
+
+import com.slavsquad.TTK.Text.Dictionaries;
 
 import javax.swing.*;
 import java.awt.*;

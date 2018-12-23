@@ -1,4 +1,4 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Text;
 
 /**
  * Created by stepanenko.sg on 26.04.2017.

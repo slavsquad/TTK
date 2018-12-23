@@ -2,8 +2,11 @@
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
 
+import com.slavsquad.TTK.Text.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionary;
+import com.slavsquad.TTK.Text.Text;
 import org.jfree.chart.*;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
@@ -30,7 +33,7 @@ import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.UnitType;
-import sun.security.pkcs11.wrapper.CK_UNLOCKMUTEX;
+//import sun.security.pkcs11.wrapper.CK_UNLOCKMUTEX;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,8 +43,6 @@ import java.awt.geom.Ellipse2D;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Class <>StatisticsForm</> implements form, displaying statistics information
@@ -112,7 +113,7 @@ public class StatisticsForm extends JDialog
     private  PieDataset createPieDataset()
     {
         DefaultPieDataset defaultpiedataset = new DefaultPieDataset();
-        for (Dictionaree dictionary:dictionaries.getListDictionaries()){
+        for (Dictionary dictionary:dictionaries.getListDictionaries()){
             if (dictionary.getIdCurrentText()>0)
                 defaultpiedataset.setValue(dictionary.getName(), dictionary.getIdCurrentText());
         }
@@ -239,7 +240,7 @@ public class StatisticsForm extends JDialog
      * Method creates and shows statistic panel
      */
     private void createdStatisticPanel(String dictionaryName){
-        Dictionaree dictionary = dictionaries.getDictionary(dictionaryName);
+        Dictionary dictionary = dictionaries.getDictionary(dictionaryName);
 
         CardLayout cl = (CardLayout)(cardPanel.getLayout());
         xyPanel = createXyPanel(dictionaryName,0,dictionary.getIdCurrentText()-1,"Speed");
@@ -281,7 +282,7 @@ public class StatisticsForm extends JDialog
             String toolTip = entity.getToolTipText();
 
             if(entity instanceof XYItemEntity && toolTip!=null){
-                Dictionaree dictionary = dictionaries.getDictionary(name);
+                Dictionary dictionary = dictionaries.getDictionary(name);
                 XYItemEntity xyItemEntity = (XYItemEntity)entity;
                 TimeSeriesCollection timeSeries = (TimeSeriesCollection) chartMouseEvent.getChart().getXYPlot().getDataset(0);
                 int startTextId = timeSeries.getY(4,xyItemEntity.getItem()).intValue();
@@ -395,7 +396,7 @@ public class StatisticsForm extends JDialog
         TimeSeries volumePointsSeries= new TimeSeries("Volume points");
 
 
-        Dictionaree dictionary = dictionaries.getDictionary(name);
+        Dictionary dictionary = dictionaries.getDictionary(name);
 
 
 

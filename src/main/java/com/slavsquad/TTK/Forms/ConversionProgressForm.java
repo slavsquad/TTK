@@ -1,11 +1,10 @@
-package com.slavsquad.TTK;
+package com.slavsquad.TTK.Forms;
+
+import com.slavsquad.TTK.Text.Converter;
+import com.slavsquad.TTK.Text.Dictionaries;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
@@ -28,7 +27,7 @@ public class ConversionProgressForm extends JDialog {
      * @param MAX - quantity of characters
      * @param sizeText - size of text for dictionary(the dictionary contains any texts)
      */
-    ConversionProgressForm(JFrame parent, String title, Dictionaries dictionaries, File file, final int MAX,int sizeText){
+    ConversionProgressForm(JFrame parent, String title, Dictionaries dictionaries, File file, final int MAX, int sizeText){
         super(parent,title);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
