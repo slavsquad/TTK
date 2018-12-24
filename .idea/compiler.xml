@@ -9,8 +9,5 @@
         <module name="TTK" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="TTK" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
