@@ -82,6 +82,12 @@ public class MainForm extends JFrame {
         sourceText.setWrapStyleWord(true);
         sourceText.setEditable(false);
         sourceText.setBorder(BorderFactory.createEmptyBorder(0,2,0,2));
+        sourceText.getInputMap().put(KeyStroke.getKeyStroke("control C"),"preventCopy");
+        sourceText.getActionMap().put("preventCopy", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(MainForm.this,"Копирование заблокированно!");
+            }});
 
         mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(12,12,12,12));
@@ -331,6 +337,7 @@ public class MainForm extends JFrame {
                 errorsCounterLabel.setText(Integer.toString(newCountErrors));
 
             if(workWithText.isDone()){
+
                 resultText.setText(workWithText.showTextStatistics(false));
 
                 resultText.setCaretPosition(0);
@@ -338,6 +345,32 @@ public class MainForm extends JFrame {
                 cl.show(cardPanel,RESULTPANEL);
                 sessionPanel.setVisible(false);
                 nextBtn.requestFocus();
+
+                /**
+                 * Grab and saving user's results and statistics
+                 */
+
+                int speed = workWithText.getSpeedTyping();
+                double errorPercent = workWithText.getErrorPercent();
+                dictionaries.getCurrentDictionary().setAverageSpeed(speed);
+                dictionaries.getCurrentDictionary().setMaxSpeed(speed);
+                dictionaries.getCurrentDictionary().setErrorPercent(errorPercent);
+                Text text = dictionaries.getCurrentDictionary().getCurrentText();
+                text.setTime(workWithText.getTimer().getSeconds()*1000);
+                text.setSpeed(speed);
+                text.setError(workWithText.getErrorPercent());
+                text.setListErrors(workWithText.getSortListErrors());
+                text.setDate(new Date());
+
+                if ((dictionaries.getCurrentDictionary().getIdCurrentText()+1)<dictionaries.getCurrentDictionary().getTextList().size()){
+                    dictionaries.getCurrentDictionary().nextIdText();
+
+                }else {
+                    if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(MainForm.this,"You are already typed all texts in this dictionary! \n Do you want typing the dictionary again?","Confirm dialog",JOptionPane.YES_NO_OPTION)){
+                        dictionaries.getCurrentDictionary().setIdCurrentText(0);
+                        start();
+                    }
+                }
             }
         }
     }
@@ -347,30 +380,7 @@ public class MainForm extends JFrame {
     class NextButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            /**
-             * Grab and saving statistics
-             */
-            int speed = workWithText.getSpeedTyping();
-            double errorPercent = workWithText.getErrorPercent();
-            dictionaries.getCurrentDictionary().setAverageSpeed(speed);
-            dictionaries.getCurrentDictionary().setMaxSpeed(speed);
-            dictionaries.getCurrentDictionary().setErrorPercent(errorPercent);
-            Text text = dictionaries.getCurrentDictionary().getCurrentText();
-            text.setTime(workWithText.getTimer().getSeconds()*1000);
-            text.setSpeed(speed);
-            text.setError(workWithText.getErrorPercent());
-            text.setListErrors(workWithText.getSortListErrors());
-            text.setDate(new Date());
-
-            if ((dictionaries.getCurrentDictionary().getIdCurrentText()+1)<dictionaries.getCurrentDictionary().getTextList().size()){
-                dictionaries.getCurrentDictionary().nextIdText();
-                start();
-            }else {
-                if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(MainForm.this,"You are already typed all texts in this dictionary! \n Do you want typing the dictionary again?","Confirm dialog",JOptionPane.YES_NO_OPTION)){
-                    dictionaries.getCurrentDictionary().setIdCurrentText(0);
-                    start();
-                }
-            }
+            start();
         }
     }
 
@@ -379,6 +389,8 @@ public class MainForm extends JFrame {
     class AgainButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            int currentTextId = dictionaries.getCurrentDictionary().getIdCurrentText();
+            dictionaries.getCurrentDictionary().setIdCurrentText(currentTextId-1);
             start();
         }
     }
