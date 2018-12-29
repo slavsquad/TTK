@@ -48,8 +48,10 @@ public class MainForm extends JFrame {
         setTitle("Typing Tutor Keyboard");
         ImageIcon img = new ImageIcon(getClass().getResource("/images/icon.png"));
         setIconImage(img.getImage());
+
+
         /**Menu bar*/
-        menuBar = new JMenuBar(){//Override this method in order to paint MenuBar like JLabel color
+        menuBar = new JMenuBar(){//Override this method in order to paint MenuBar like JLabel color, when user typing
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -57,7 +59,7 @@ public class MainForm extends JFrame {
                 g2d.setColor(new Color(238,238,238));
                 g2d.fillRect(0, 0, getWidth() - 1, getHeight() - 1);
 
-            }
+         }
         };
         menuBar.add(createTypingMenu());
         menuBar.add(createDictionaryMenu());

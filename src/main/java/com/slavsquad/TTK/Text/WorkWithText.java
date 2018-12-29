@@ -87,19 +87,18 @@ public class WorkWithText {
                 String sourceStr=sourceText.getText(0,inStrLen);
 
                 if (inputText.getText().equals(sourceStr)) {
-                    sourceText.setForeground(Color.black);
+                    sourceText.setForeground(Color.black);//Paint text black color, because after error source test painted red color
 
                     int TextWidth = Info.getMinimumWidth(sourceText);
-                    int strWidth = Info.getWidthStr(sourceText,sourceStr);
-                    int maxhStrLength = Info.getMaxStrLength(sourceText,TextWidth);
+                    int maxStrLength = Info.getMaxStrLength(sourceText,TextWidth);
 
 
                    changeHighLight(highLight,0,inputText.getCaretPosition());
 
-                    if(sourceStr.length()>maxhStrLength){
+                    if(sourceStr.length()>maxStrLength){
                         String temp = sourceText.getText();
-                        int strOffset = maxhStrLength+1;
-                        inputText.setText(sourceStr.substring(strOffset,sourceStr.length()));
+                        int strOffset = maxStrLength+1;
+                        inputText.setText(sourceStr.substring(strOffset));
                         offset += strOffset;
                         sourceText.setText(temp.substring(strOffset));
                         sourceText.setCaretPosition(0);//JScrollPane always up

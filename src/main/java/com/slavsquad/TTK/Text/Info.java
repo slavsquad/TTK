@@ -46,7 +46,7 @@ public class Info {
     }
 
     /**
-     * Method calculate length 1-st displayed string in source text
+     * Method calculate length 1-st displayed string in source text area
      * @return length string in quantity characters
      */
     static public int getMaxStrLength(JTextArea component, int length) {
