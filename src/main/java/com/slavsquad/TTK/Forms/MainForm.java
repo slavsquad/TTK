@@ -66,7 +66,7 @@ public class MainForm extends JFrame {
         menuBar.add(createViewMenu());
         menuBar.add(createStatisticsMenu());
         menuBar.add(createHelpMenu());
-        setJMenuBar(menuBar);
+        setJMenuBar(menuBar);//analog this.setJMenuBar(menuBar);
         /**Source text*/
         str = " ";
 

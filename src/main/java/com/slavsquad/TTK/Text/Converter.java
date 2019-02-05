@@ -50,6 +50,7 @@ public class Converter extends SwingWorker<List<Text>,Integer>{
             while ((read=reader.read())!=-1){//if reading character will be -1 then file is ended
                 int lastChar = 0;
                 temp = clearServiceChar(read);//Clear text from services chars
+                //System.out.println("Number char="+ numChar + " Origin char="+(char)read+" "+read+" Clear char="+ (char)temp+" "+temp); use this string for debug text dictionary
                 if (text.length() != 0){
                     lastChar = (int)text.charAt(text.length()-1);
                 }
@@ -138,6 +139,7 @@ public class Converter extends SwingWorker<List<Text>,Integer>{
             case 150:        //Insert - instead of: – —
             case 151:
             case 8211:
+            case 8212:
                 character = 45;
                 break;
             case 133:        //Insert ... instead of: …
