@@ -4,9 +4,9 @@
 
 package com.slavsquad.TTK.Forms;
 
-import com.slavsquad.TTK.Text.Dictionaries;
-import com.slavsquad.TTK.Text.Dictionary;
-import com.slavsquad.TTK.Text.Text;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionary;
+import com.slavsquad.TTK.Text.Dictionaries.Text;
 import org.jfree.chart.*;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;

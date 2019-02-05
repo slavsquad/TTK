@@ -1,4 +1,4 @@
-package com.slavsquad.TTK.Text;
+package com.slavsquad.TTK.Text.Dictionaries;
 
 
 import java.io.Serializable;

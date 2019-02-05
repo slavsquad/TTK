@@ -1,4 +1,4 @@
-package com.slavsquad.TTK.Text;
+package com.slavsquad.TTK.Components;
 
 import javax.swing.*;
 import java.util.Timer;

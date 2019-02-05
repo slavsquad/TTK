@@ -1,8 +1,10 @@
-package com.slavsquad.TTK.Text;
+package com.slavsquad.TTK.Text.Dictionaries;
 
 /**
  * Created by stepanenko.sg on 26.04.2017.
  */
+
+import com.slavsquad.TTK.Text.TextError;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,6 +1,9 @@
 package com.slavsquad.TTK.Forms;
 
 import com.slavsquad.TTK.Text.*;
+import com.slavsquad.TTK.Components.TimerLabel;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionaries.Text;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;

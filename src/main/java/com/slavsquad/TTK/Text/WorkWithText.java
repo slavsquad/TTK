@@ -1,5 +1,7 @@
 package com.slavsquad.TTK.Text;
 
+import com.slavsquad.TTK.Components.TimerLabel;
+
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;

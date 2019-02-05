@@ -1,7 +1,7 @@
 package com.slavsquad.TTK.Forms;
 
 import com.slavsquad.TTK.Text.Converter;
-import com.slavsquad.TTK.Text.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionaries;
 
 import javax.swing.*;
 import java.awt.*;

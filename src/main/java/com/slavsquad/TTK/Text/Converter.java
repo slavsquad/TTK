@@ -1,9 +1,8 @@
 package com.slavsquad.TTK.Text;
 
-import com.slavsquad.TTK.Text.Dictionaries;
-import com.slavsquad.TTK.Text.Dictionary;
-import com.slavsquad.TTK.Text.Info;
-import com.slavsquad.TTK.Text.Text;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionaries;
+import com.slavsquad.TTK.Text.Dictionaries.Dictionary;
+import com.slavsquad.TTK.Text.Dictionaries.Text;
 
 import javax.swing.*;
 import java.io.File;
